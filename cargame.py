@@ -10,13 +10,13 @@ clock = pygame.time.Clock()
 # set the resolution of our game window
 WIDTH = 1080
 HEIGHT = 720
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
+display = pygame.display.set_mode((WIDTH, HEIGHT))
 
 # get my background
-background = build_background(screen)
+background = build_background(display)
 
 # make a car instance
-my_car = Car(screen)
+my_car = Car(display)
 
 # steer authority
 steer_step = 5
@@ -29,8 +29,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    # draw the background on the screen
-    screen.blit(background, (0, 0))
+    # draw the background on the display
+    display.blit(background, (0, 0))
 
     # update and draw car
     my_car.update()
@@ -40,7 +40,7 @@ while running:
 
     pygame.display.set_caption(f"CHOMP {clock.get_fps():.0}")
 
-    # flip() the display to put your work on screen
+    # flip() the display to put your work on display
     pygame.display.flip()
 
 pygame.quit()
